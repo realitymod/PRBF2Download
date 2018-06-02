@@ -4,7 +4,7 @@
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
-    "webtorrent": "0.100.0"
+    "webtorrent": "latest"
   },
   "scripts": {
     "postinstall": "install-app-deps",
@@ -17,12 +17,11 @@
     "appId": "PRBF2-Download-Assistant",
     "win": {
       "target": "NSIS",
-      "icon": "build/icon.ico"
+      "icon": "/app/assets/icons/ico/icon.ico"
     }
   },
   "devDependencies": {
     "electron": "latest",
-    "electron-builder": "latest",
-    "electron-installer-squirrel-windows": "^1.3.0"
+    "electron-builder": "latest"
   }
 }
