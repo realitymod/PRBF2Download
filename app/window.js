@@ -11,7 +11,6 @@ $(() => {
     const prettyBytes = require('pretty-bytes');
     var humanizeDuration = require('humanize-duration')
     var spawn = require("child_process").spawn, child;
-    fs = require('fs')
 
     var client = new WebTorrent();
 
