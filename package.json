@@ -1,6 +1,6 @@
 {
   "name": "PRBF2-Download-Assistant",
-  "version": "1.0.0",
+  "version": "1.0.0-BETA",
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
