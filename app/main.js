@@ -5,9 +5,9 @@ var os = require('os');
 function createWindow() {
     win = new BrowserWindow({
         width: 700,
-        height: 350,
+        height: 400,
         autoHideMenuBar: true,
-        frame: true,
+        frame: false,
         darkTheme: true,
         resizable: false,
         icon: path.join(__dirname, 'assets/icons/png/64x64.png')

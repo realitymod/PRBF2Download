@@ -4,7 +4,7 @@ body {
 h1{
     color: #2d93c6;
 }
-h3,p{
+h5,p{
     color: #999999;
 }
 
@@ -15,9 +15,49 @@ h3,p{
     font-weight: bold;
 }
 
+.progress-bar{
+    background-color: #2d93c6;
+}
 .btn-primary:hover{
     background: linear-gradient(to bottom,#43a9dc,#147aad);
     color:black;
     border:none;
     font-weight: bold;
+    box-shadow: none;
+}
+
+#titlebar-container {
+    background-color: black;
+    position: relative;
+    height: 20px;
+    -webkit-app-region: drag;
+
+}
+
+.fa-times {
+    position: absolute;
+    color: #999999;
+    font-size: 16px;
+    top: 2px;
+    right: 5px;
+    -webkit-app-region: no-drag;
+}
+
+.fa-window-minimize {
+    position: absolute;
+    color: #999999;
+    top: 6px;
+    font-size:11px;
+    right: 22px;
+    -webkit-app-region: no-drag;
+}
+
+.fa-times:hover {
+    color: #999999;
+    text-shadow: 0 0 5px #ff0000;
+}
+
+.fa-window-minimize:hover {
+    color: #999999;
+    text-shadow: 0 0 5px #0c99ff;
 }

@@ -5,19 +5,21 @@
   "main": "./app/main.js",
   "dependencies": {
     "electron-titlebar-windows": "^3.0.0",
+    "node-browserfs": "^3.0.1",
     "webtorrent": "latest"
   },
   "scripts": {
-    "postinstall": "install-app-deps",
     "start": "electron .",
-    "pack": "build --dir",
     "dist": "build"
   },
   "author": "RealityMod",
   "build": {
     "appId": "PRBF2-Download-Assistant",
     "win": {
-      "target": "NSIS",
+      "target": [
+        "NSIS",
+        "portable"
+      ],
       "icon": "/app/assets/icons/ico/icon.ico"
     }
   },
