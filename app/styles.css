@@ -1,5 +1,8 @@
 body {
     background-color: #222222;
+    -webkit-user-select: none;
+    cursor: default;
+    font-family: "Segoe UI";
 }
 
 h1 {
@@ -14,6 +17,10 @@ h5 {
     color: white
 }
 
+#version-number{
+    font-size:20px;
+}
+
 .progress-bar {
     background-color: #2d93c6;
 }
@@ -22,15 +29,16 @@ h5 {
     background: linear-gradient(to bottom, #3298cb, #03699c);
     color: black;
     border: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .btn-primary:hover {
     background: linear-gradient(to bottom, #43a9dc, #147aad);
     color: black;
     border: none;
-    font-weight: bold;
+    font-weight: 500;
     box-shadow: none;
+    cursor: default;
 }
 
 #titlebar-container {

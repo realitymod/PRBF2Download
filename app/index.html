@@ -25,10 +25,13 @@
         PR:BF2 Download Assistant
         <small id="version-number" class="text-white">v1.0.0</small>
     </h1>
-    <p class="normaltext">Please wait while we download the full installer of Project Reality Battlefield 2. <br>It will
-        be downloaded to your standard Downloads folder. <br><b>Make sure there is at least 9GB of free space!</b></p>
-
+    <p class="normaltext">Please wait until the download of the installer is completed. <br>It will
+        be stored in the Downloads folder. <br><b>Make sure there is at least 9GB of free space!</b></p>
     <h5>Download progress:</h5>
+    <div class="progress">
+        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
     <div id="progress-information" class="container-fluid">
         <div class="row">
             <div id="progress-information-size" class="col-sm">
@@ -40,10 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="progress">
-        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
-    </div>
+    <div id="website-link" class="website-link">Realitymod.com</div>
     <div id="install-container" class="install" style="visibility:hidden">
         <button id="install-button" type="button"
                 style="margin: auto;margin-top: 20px;margin-bottom:20px;display: block"
@@ -51,7 +51,6 @@
         </button>
         <p class="normaltext" id="install-instructions">Installation Instructions</p>
     </div>
-    <div id="website-link" class="website-link">Realitymod.com</div>
 </div>
 </body>
 </html>
