@@ -1,8 +1,10 @@
 $(() => {
-    var WebTorrent = require('webtorrent');
     const remote = require('electron').remote;
     const app = remote.app;
     $('#version-number').text('v' + app.getVersion());
+    var WebTorrent = require('webtorrent');
+
+
 
 
     const shell = require('electron').shell;
@@ -66,6 +68,18 @@ $(() => {
         }, 1000);
 
         torrent.on('done', function () {
+            var notification = {
+                title: "PR:BF2 Download Assistant",
+                body: "Download Complete",
+                icon: './assets/icons/png/256x256.png'
+            };
+
+            var myNotification = new window.Notification(notification.title, notification);
+
+            myNotification.onclick = () => {
+                var window = remote.getCurrentWindow();
+                window.show();
+            }
             $('#progress-bar').attr('aria-valuenow', 100);
             $('#progress-bar').css('width', 100 + '%');
             $('#progress-bar').text('Completed');

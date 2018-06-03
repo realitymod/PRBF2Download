@@ -4,8 +4,8 @@
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
-    "humanize-duration": "latest",
-    "pretty-bytes": "latest",
+    "humanize-duration": "^3.14.0",
+    "pretty-bytes": "^5.0.0",
     "webtorrent": "latest"
   },
   "scripts": {
