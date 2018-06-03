@@ -4,15 +4,19 @@ $(() => {
     const shell = require('electron').shell;
     var spawn = require("child_process").spawn, child;
     fs = require('fs')
+
     const app = remote.app;
     var client = new WebTorrent();
-    var executablePath = app.getPath('downloads') + '\\gimp-2.8.22-setup.exe';
-    var magnetURI = 'http://www.legittorrents.info/download.php?id=c691c817f7310ab3e7851576814dfc167bb52740&f=gimp-2.8.22-setup.exe.torrent';
+
+    const filename = 'gimp_test_iso.iso';
+    var executablePath = app.getPath('downloads') + '\\' + filename;
+    var magnetURI = 'http://files.realitymod.com/bt/gimp_test_iso.iso.torrent';
+
     client.add(magnetURI, {path: app.getPath('downloads')}, onTorrent);
 
     function onInstallButtonPress() {
         if (getOsVersion()) {
-            child = spawn("powershell.exe", ["-Command","Mount-DiskImage -ImagePath \"" + app.getPath('downloads') + '\\prbf2_1.5.0.0_full.iso' + "\""]);
+            child = spawn("powershell.exe", ["-Command", "Mount-DiskImage -ImagePath \"" + app.getPath('downloads') + '\\' + filename + "\""]);
         } else {
             shell.showItemInFolder(executablePath);
         }
@@ -32,10 +36,18 @@ $(() => {
         window.close();
     }
 
-    document.querySelector('#install-button').addEventListener('click', onInstallButtonPress);
-    document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
-    document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
-    document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
+    function getOsVersion() {
+        var os = require('os');
+        var release = os.release();
+        var splitRelease = release.split('.')/**/;
+        if (splitRelease[0] === '10' || splitRelease[0] === '8') {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
     function onTorrent(torrent) {
         var interval = setInterval(function () {
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);
@@ -59,16 +71,9 @@ $(() => {
             }
         })
     }
+
+    document.querySelector('#install-button').addEventListener('click', onInstallButtonPress);
+    document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
+    document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
+    document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
 });
-
-function getOsVersion() {
-    var os = require('os');
-    var release = os.release();
-    var splitRelease = release.split('.')/**/;
-    if (splitRelease[0] === '10' || splitRelease[0] === '8') {
-        return true;
-    } else {
-        return false;
-    }
-
-}
