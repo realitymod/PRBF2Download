@@ -1,0 +1,23 @@
+body {
+    background-color: #222222;
+}
+h1{
+    color: #2d93c6;
+}
+h3,p{
+    color: #999999;
+}
+
+.btn-primary {
+    background: linear-gradient(to bottom,#3298cb,#03699c);
+    color:black;
+    border:none;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background: linear-gradient(to bottom,#43a9dc,#147aad);
+    color:black;
+    border:none;
+    font-weight: bold;
+}
