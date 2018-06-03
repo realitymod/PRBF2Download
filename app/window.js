@@ -63,9 +63,16 @@ $(() => {
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);
             $('#progress-bar').css('width', torrent.progress * 100 + '%');
             $('#progress-bar').text(Math.round(torrent.progress * 100) + '%');
-            $('#progress-information-size').text(prettyBytes(torrent.progress*torrent.length) +'/' + prettyBytes(torrent.length));
-            $('#progress-information-time').text(humanizeDuration(torrent.timeRemaining,{ round: true, largest: 2 }) + ' remaining');
-            $('#progress-information-speed').text(prettyBytes(torrent.downloadSpeed) + '/s');
+            if(Math.round(torrent.progress * 100) == 100){
+                $('#progress-information-size').text(' ');
+                $('#progress-information-time').text('Verifying Files...');
+                $('#progress-information-speed').text(' ');
+            }else{
+                $('#progress-information-size').text(prettyBytes(torrent.progress*torrent.length) +'/' + prettyBytes(torrent.length));
+                $('#progress-information-time').text(humanizeDuration(torrent.timeRemaining,{ round: true, largest: 2 }) + ' remaining');
+                $('#progress-information-speed').text(prettyBytes(torrent.downloadSpeed) + '/s');
+            }
+
         }, 1000);
 
         torrent.on('done', function () {
