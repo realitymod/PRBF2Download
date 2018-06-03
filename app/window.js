@@ -1,13 +1,16 @@
 $(() => {
     var WebTorrent = require('webtorrent');
     const remote = require('electron').remote;
+    const app = remote.app;
+    $('#version-number').text('v' + app.getVersion());
+
+
     const shell = require('electron').shell;
     const prettyBytes = require('pretty-bytes');
     var humanizeDuration = require('humanize-duration')
     var spawn = require("child_process").spawn, child;
     fs = require('fs')
 
-    const app = remote.app;
     var client = new WebTorrent();
 
     const filename = 'gimp_test_iso.iso';

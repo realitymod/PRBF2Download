@@ -4,6 +4,8 @@ $(() => {
 
     const app = remote.app;
 
+    $('#version-number').text('v' + app.getVersion());
+
     function onMinimizeButtonPress() {
         var window = remote.getCurrentWindow();
         window.minimize();
