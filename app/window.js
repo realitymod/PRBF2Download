@@ -76,8 +76,8 @@ $(() => {
         }, 1000);
 
         torrent.on('done', function () {
-            var window = remote.getCurrentWindow();
-            window.setProgressBar(1,{mode: "none"});
+            var win = remote.getCurrentWindow();
+            win.setProgressBar(1,{mode: "none"});
             var notification = {
                 title: "PR:BF2 Download Assistant",
                 body: "Download Complete",
@@ -87,8 +87,7 @@ $(() => {
             var myNotification = new window.Notification(notification.title, notification);
 
             myNotification.onclick = () => {
-                var window = remote.getCurrentWindow();
-                window.show();
+                win.show();
             }
             $('#progress-bar').attr('aria-valuenow', 100);
             $('#progress-bar').css('width', 100 + '%');
