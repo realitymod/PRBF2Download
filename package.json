@@ -4,8 +4,6 @@
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
-    "electron-titlebar-windows": "^3.0.0",
-    "node-browserfs": "^3.0.1",
     "webtorrent": "latest"
   },
   "scripts": {
