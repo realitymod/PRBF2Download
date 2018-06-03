@@ -23,6 +23,10 @@ $(() => {
         window.minimize();
     }
 
+    function onWebsiteLinkPress() {
+        shell.openExternal('https://www.realitymod.com')
+    }
+
     function onCloseButtonPress() {
         var window = remote.getCurrentWindow();
         window.close();
@@ -31,6 +35,7 @@ $(() => {
     document.querySelector('#install-button').addEventListener('click', onInstallButtonPress);
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
+    document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     function onTorrent(torrent) {
         var interval = setInterval(function () {
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);

@@ -61,3 +61,12 @@ h5,p{
     color: #999999;
     text-shadow: 0 0 5px #0c99ff;
 }
+
+.website-link{
+    position: absolute;
+    font-size:13px;
+    bottom: 0px;
+    right: 3px;
+    cursor: pointer;
+    color: #999999;
+}
