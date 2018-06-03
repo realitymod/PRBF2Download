@@ -59,7 +59,7 @@ $(() => {
     function onTorrent(torrent) {
         var interval = setInterval(function () {
             var window = remote.getCurrentWindow();
-            window.setProgressBar(torrent.progress)
+            window.setProgressBar(torrent.progress,{mode: "normal"});
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);
             $('#progress-bar').css('width', torrent.progress * 100 + '%');
             $('#progress-bar').text(Math.round(torrent.progress * 100) + '%');
@@ -69,6 +69,8 @@ $(() => {
         }, 1000);
 
         torrent.on('done', function () {
+            var window = remote.getCurrentWindow();
+            window.setProgressBar(1,{mode: "none"});
             var notification = {
                 title: "PR:BF2 Download Assistant",
                 body: "Download Complete",
