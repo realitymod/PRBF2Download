@@ -18,6 +18,7 @@ h5,p{
 .progress-bar{
     background-color: #2d93c6;
 }
+
 .btn-primary:hover{
     background: linear-gradient(to bottom,#43a9dc,#147aad);
     color:black;
@@ -69,4 +70,11 @@ h5,p{
     right: 3px;
     cursor: pointer;
     color: #999999;
+}
+
+#progress-information-size,#progress-information-time,#progress-information-speed{
+    color: #999999;
+    font-size:12px;
+    margin:0px;
+    text-align:center;
 }

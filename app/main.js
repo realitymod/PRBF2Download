@@ -5,7 +5,7 @@ var os = require('os');
 function createWindow() {
     win = new BrowserWindow({
         width: 700,
-        height: 400,
+        height: 450,
         autoHideMenuBar: true,
         frame: false,
         darkTheme: true,

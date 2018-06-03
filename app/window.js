@@ -2,6 +2,8 @@ $(() => {
     var WebTorrent = require('webtorrent');
     const remote = require('electron').remote;
     const shell = require('electron').shell;
+    const prettyBytes = require('pretty-bytes');
+    var humanizeDuration = require('humanize-duration')
     var spawn = require("child_process").spawn, child;
     fs = require('fs')
 
@@ -54,7 +56,10 @@ $(() => {
         var interval = setInterval(function () {
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);
             $('#progress-bar').css('width', torrent.progress * 100 + '%');
-            $('#progress-bar').text(Math.round(torrent.progress * 100) + '% - ' + (client.downloadSpeed / 1000000).toFixed(2) + ' MB/s');
+            $('#progress-bar').text(Math.round(torrent.progress * 100) + '%');
+            $('#progress-information-size').text(prettyBytes(torrent.progress*torrent.length) +'/' + prettyBytes(torrent.length));
+            $('#progress-information-time').text(humanizeDuration(torrent.timeRemaining,{ round: true },{ largest: 2 }) + ' remaining');
+            $('#progress-information-speed').text(prettyBytes(torrent.downloadSpeed) + '/s');
         }, 1000);
 
         torrent.on('done', function () {
@@ -63,10 +68,13 @@ $(() => {
             $('#progress-bar').text('Completed');
             $('#progress-bar').attr('class', 'progress-bar progress-bar-striped');
             $('#install-container').css('visibility', 'visible');
+            $('#progress-information').text( prettyBytes(torrent.progress*torrent.length) +'/' + prettyBytes(torrent.length) + ' | ' + humanizeDuration(torrent.timeRemaining,{ round: true }) + ' remaining | ' + prettyBytes(torrent.downloadSpeed) + '/s');
+
+            $('#progress-information').css('visibility', 'hidden');
             clearInterval(interval);
             torrent.destroy();
             if (getOsVersion()) {
-                $('#install-instructions').text('Once you have mounted the Installer it will appear as a DVD. You will be able to run the setup of PR:BF2 by opening it.');
+                $('#install-instructions').text('Once you have mounted the PR:BF2 Installer will appear as a mounted DVD. You will be able to run the setup of PR:BF2 by opening it.');
                 $('#install-button').text('Mount Installer');
             } else {
                 $('#install-instructions').text('Please use software such as 7ZIP or WinRar to open the ISO file you have downloaded. Then start the Setup executable to start the PR:BF2 installer.');

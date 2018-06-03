@@ -4,6 +4,8 @@
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
+    "humanize-duration": "^3.14.0",
+    "pretty-bytes": "^5.0.0",
     "webtorrent": "latest"
   },
   "scripts": {
@@ -15,7 +17,6 @@
     "appId": "PRBF2-Download-Assistant",
     "win": {
       "target": [
-        "NSIS",
         "portable"
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
