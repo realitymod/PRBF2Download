@@ -20,7 +20,7 @@ function createWindow() {
     });
 
     if (os.platform() == 'win32') {
-        win.loadFile('./app/index.html')
+        win.loadFile('./app/wrongos.html')
     } else {
         win.loadFile('./app/wrongos.html')
     }
