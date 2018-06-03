@@ -33,7 +33,9 @@ $(() => {
 
     function onCloseButtonPress() {
         var window = remote.getCurrentWindow();
+        app.quit();
         window.close();
+
     }
 
     function getOsVersion() {
