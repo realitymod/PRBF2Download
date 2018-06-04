@@ -30,7 +30,7 @@ function createWindow() {
         if(parseConfigFile()) {
             win.loadFile('./app/download.html')
         }else{
-            win.loadFile('./app/folderselect.html')
+            win.loadFile('./app/folder_select.html')
         }
 
     } else {
