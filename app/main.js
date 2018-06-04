@@ -7,7 +7,7 @@ function createWindow() {
 
     let win = new BrowserWindow({
         width: 700,
-        height: 350,
+        height: 400,
         autoHideMenuBar: true,
         frame: false,
         darkTheme: true,
