@@ -111,3 +111,8 @@ h5 {
     outline: none !important;
     box-shadow: none;
 }
+
+#prbf2-manual-link{
+    color: #0c99ff;
+    cursor: pointer;
+}

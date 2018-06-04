@@ -95,6 +95,10 @@ $(() => {
         shell.openExternal('https://www.realitymod.com')
     }
 
+    function onPRManualLinkPress() {
+        shell.openExternal('https://realitymod.gitbooks.io/pr-manual/content/')
+    }
+
     function onGithubLinkPress() {
         shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
     }
@@ -168,7 +172,7 @@ $(() => {
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
     document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
-
+    document.querySelector('#prbf2-manual-link').addEventListener('click', onPRManualLinkPress);
     getVersionBig(function(version){
         $('#prbf2-version').text(version);
     });
