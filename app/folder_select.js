@@ -41,6 +41,10 @@ $(() => {
         shell.openExternal('https://www.realitymod.com')
     }
 
+    function onGithubLinkPress() {
+        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+    }
+
     function onCloseButtonPress() {
         app.quit();
         win.close();
@@ -58,4 +62,5 @@ $(() => {
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
+    document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
 });

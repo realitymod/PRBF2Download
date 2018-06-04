@@ -86,6 +86,15 @@ h5 {
     color: #999999;
 }
 
+.github-link {
+    position: absolute;
+    font-size: 13px;
+    bottom: 0;
+    left: 3px;
+    cursor: pointer;
+    color: #999999;
+}
+
 #progress-information-size, #progress-information-time, #progress-information-speed {
     color: #999999;
     font-size: 12px;

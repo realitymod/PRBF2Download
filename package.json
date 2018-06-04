@@ -1,7 +1,7 @@
 {
   "name": "PRBF2-Download-Assistant",
   "version": "1.0.0",
-  "description": "A automatic download tool for Project Reality: Battlefield 2",
+  "description": "An automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
@@ -11,7 +11,8 @@
   "scripts": {
     "start": "electron .",
     "dist": "build"
-  "author": "RealityMod",
+  },
+  "author": "Wouter Jansen",
   "build": {
     "appId": "PRBF2-Download-Assistant",
     "win": {

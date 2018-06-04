@@ -22,7 +22,12 @@ $(() => {
 
     }
 
+    function onGithubLinkPress() {
+        shell.openExternal('https://github.com/WouterJansen/PRBF2Download')
+    }
+
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
+    document.querySelector('#github-link').addEventListener('click', onGithubLinkPress);
 });
