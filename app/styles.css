@@ -97,3 +97,8 @@ h5 {
     color: #999999;
     font-size: 14px;
 }
+
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}

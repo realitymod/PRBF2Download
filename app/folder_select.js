@@ -8,9 +8,10 @@ $(() => {
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
 
-    $('#version-number').text('v' + app.getVersion());
     $('#download-storage-location-text').attr('value', downloadsPath);
-
+    getVersionBig(function(version){
+        $('#prbf2-version').text(version);
+    });
     function onBrowseButtonPress() {
         let downloadsPathTemp = remote.dialog.showOpenDialog({
             title: 'Select Download location',
@@ -21,6 +22,15 @@ $(() => {
             downloadsPath = downloadsPathTemp[0]
         }
         $('#download-storage-location-text').attr('value', downloadsPath);
+    }
+
+    function getVersionBig(handleData) {
+        $.ajax({
+            url: "https://www.realitymod.com/version/version.json",
+            success:function(data) {
+                handleData(data.version_big);
+            }
+        });
     }
 
     function onMinimizeButtonPress() {

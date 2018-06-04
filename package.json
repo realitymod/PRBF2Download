@@ -1,6 +1,6 @@
 {
   "name": "PRBF2-Download-Assistant",
-  "version": "1.1.0-BETA",
+  "version": "1.0.0",
   "description": "A automatic download tool for Project Reality: Battlefield 2",
   "main": "./app/main.js",
   "dependencies": {
@@ -11,7 +11,6 @@
   "scripts": {
     "start": "electron .",
     "dist": "build"
-  }
   "author": "RealityMod",
   "build": {
     "appId": "PRBF2-Download-Assistant",

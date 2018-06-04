@@ -11,12 +11,9 @@ $(() => {
     const client = new WebTorrent();
     const win = remote.getCurrentWindow();
 
-    const isoName = 'gimp_test_iso.iso';
-    const installerName = 'gimp-2.8.22-setup.exe';
-    const torrentURL = 'http://files.realitymod.com/bt/gimp_test_iso.iso.torrent';
+    let installerName = 'none';
     let setupPath = 'none';
-    const downloadsPath = getDownloadStoragePath();
-    const isoPath = path.join(downloadsPath, isoName);
+    let isoPath = 'none';
 
     function findMountedDrive() {
         let found = false;
@@ -29,6 +26,42 @@ $(() => {
         if (found === false) {
             return 'none'
         }
+    }
+
+    function getVersionBig(handleData) {
+        $.ajax({
+            url: "https://www.realitymod.com/version/version.json",
+            success:function(data) {
+                handleData(data.version_big);
+            }
+        });
+    }
+
+    function getTorrentURL(handleData) {
+        $.ajax({
+            url: "https://www.realitymod.com/version/version.json",
+            success:function(data) {
+                handleData(data.torrent_url);
+            }
+        });
+    }
+
+    function getTorrentFileName(handleData) {
+        $.ajax({
+            url: "https://www.realitymod.com/version/version.json",
+            success:function(data) {
+                handleData(data.torrent_filename);
+            }
+        });
+    }
+
+    function getTorrentSetupName(handleData) {
+        $.ajax({
+            url: "https://www.realitymod.com/version/version.json",
+            success:function(data) {
+                handleData(data.torrent_setupname);
+            }
+        });
     }
 
     function getDownloadStoragePath() {
@@ -131,6 +164,21 @@ $(() => {
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
 
-    $('#version-number').text('v' + app.getVersion());
-    client.add(torrentURL, {path: getDownloadStoragePath()}, onTorrent);
+    getVersionBig(function(version){
+        $('#prbf2-version').text(version);
+    });
+    getTorrentURL(function(torrent_url){
+        client.add(torrent_url, {path: getDownloadStoragePath()}, onTorrent);
+    });
+    getTorrentFileName(function(torrent_filename){
+        isoPath = path.join(getDownloadStoragePath(), torrent_filename)
+    });
+    getTorrentSetupName(function(torrent_setupname){
+        installerName = torrent_setupname;
+    });
+
+
+
+
+
 });
