@@ -1,25 +1,22 @@
 $(() => {
     const remote = require('electron').remote;
     const app = remote.app;
-
-
     const WebTorrent = require('webtorrent');
     const fs = require('fs');
+    const path = require('path');
     const shell = require('electron').shell;
-    var spawn = require("child_process").spawn, child;
+    let spawn = require("child_process").spawn, child;
     const prettyBytes = require('pretty-bytes');
     const humanizeDuration = require('humanize-duration');
     const client = new WebTorrent();
+    const win = remote.getCurrentWindow();
 
     const isoName = 'gimp_test_iso.iso';
     const installerName = 'gimp-2.8.22-setup.exe';
-    const isoPath = app.getPath('downloads') + '\\' + isoName;
     const torrentURL = 'http://files.realitymod.com/bt/gimp_test_iso.iso.torrent';
-    const win = remote.getCurrentWindow();
     let setupPath = 'none';
-
-    $('#version-number').text('v' + app.getVersion());
-    client.add(torrentURL, {path: app.getPath('downloads')}, onTorrent);
+    const downloadsPath = getDownloadStoragePath();
+    const isoPath = path.join(downloadsPath,isoName);
 
     function findMountedDrive() {
         let found = false;
@@ -34,11 +31,15 @@ $(() => {
         }
     }
 
+    function getDownloadStoragePath() {
+        return JSON.parse(fs.readFileSync(path.join(app.getPath('userData'),'config.json'))).downloadStoragePath;
+    }
+
     function onInstallButtonPress() {
         if (getOsVersion()) {
             setupPath = findMountedDrive();
             if (setupPath == 'none') {
-                child = spawn("powershell.exe", ["-Command", "Mount-DiskImage -ImagePath \"" + app.getPath('downloads') + '\\' + isoName + "\""]);
+                child = spawn("powershell.exe", ["-Command", "Mount-DiskImage -ImagePath \"" + isoPath + "\""]);
                 setTimeout(function () {
                     setupPath = findMountedDrive();
                     child = spawn(setupPath);
@@ -129,4 +130,7 @@ $(() => {
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
+
+    $('#version-number').text('v' + app.getVersion());
+    client.add(torrentURL, {path: getDownloadStoragePath()}, onTorrent);
 });

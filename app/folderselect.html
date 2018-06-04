@@ -12,7 +12,7 @@
         delete module.exports
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="wrongos.js" charset="utf-8"></script>
+    <script src="folderselect.js" charset="utf-8"></script>
 </head>
 <body>
 <div id="titlebar-container" class="container-fluid">
@@ -20,14 +20,31 @@
     <i id="close-button" class="fas fa-times"></i>
 </div>
 <div id="container" class="container-fluid">
+
     <h1>
         PR:BF2 Download Assistant
         <small id="version-number" class="text-white">v1.0.0</small>
     </h1>
-    <p class="normaltext">Unfortunately we cannot detect that you are running Windows.</p>
-    <p class="normaltext">PR:BF2 only works on the Windows operating system. Please install on a Windows computer or try usual Dual Boot/virtualization software if you want to play Project Reality.</p>
+    <p class="normaltext">This utility will download the official PR:BF2 Installer. <br>Please select the location where
+        to store the download.<br>
+        <b>Make sure there is at least 10GB of free space!</b></p>
+    <h5>Download Folder:</h5>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10">
+                <input type="text" class="form-control" id="download-storage-location-text" disabled>
+            </div>
+            <div  class="col">
+                <button id="browse-button" class="btn btn-primary">Browse</button>
+            </div>
+        </div>
     </div>
+
+
+    <button id="continue-button" type="button" style="margin: auto;margin-top: 20px;margin-bottom:20px;display: block" class="btn btn-primary">Continue
+    </button>
     <div id="website-link" class="website-link">Realitymod.com</div>
+</div>
 </div>
 </body>
 </html>
