@@ -6,14 +6,21 @@ $(() => {
     let downloadsPath = app.getPath('downloads');
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
-    const configPath = path.join(app.getPath('userData'),'config.json');
+    const configPath = path.join(app.getPath('userData'), 'config.json');
 
     $('#version-number').text('v' + app.getVersion());
-    $('#download-storage-location-text').attr('value',downloadsPath);
-    function onBrowseButtonPress(){
-        var downloadsPathTemp = remote.dialog.showOpenDialog({title:'Select Download location',defaultPath:downloadsPath,properties: ['openDirectory','createDirectory']})
-        if (downloadsPathTemp != undefined){downloadsPath = downloadsPathTemp[0]}
-        $('#download-storage-location-text').attr('value',downloadsPath);
+    $('#download-storage-location-text').attr('value', downloadsPath);
+
+    function onBrowseButtonPress() {
+        let downloadsPathTemp = remote.dialog.showOpenDialog({
+            title: 'Select Download location',
+            defaultPath: downloadsPath,
+            properties: ['openDirectory', 'createDirectory']
+        });
+        if (downloadsPathTemp !== undefined) {
+            downloadsPath = downloadsPathTemp[0]
+        }
+        $('#download-storage-location-text').attr('value', downloadsPath);
     }
 
     function onMinimizeButtonPress() {
@@ -35,6 +42,7 @@ $(() => {
         win.loadFile('./app/download.html')
 
     }
+
     document.querySelector('#continue-button').addEventListener('click', onContinueButtonPress);
     document.querySelector('#browse-button').addEventListener('click', onBrowseButtonPress);
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);

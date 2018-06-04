@@ -2,7 +2,7 @@ body {
     background-color: #222222;
     -webkit-user-select: none;
     cursor: default;
-    font-family: "Segoe UI";
+    font-family: "Segoe UI", serif;
 }
 
 h1 {
@@ -17,8 +17,8 @@ h5 {
     color: white
 }
 
-#version-number{
-    font-size:20px;
+#version-number {
+    font-size: 20px;
 }
 
 .progress-bar {
@@ -80,7 +80,7 @@ h5 {
 .website-link {
     position: absolute;
     font-size: 13px;
-    bottom: 0px;
+    bottom: 0;
     right: 3px;
     cursor: pointer;
     color: #999999;
@@ -89,12 +89,11 @@ h5 {
 #progress-information-size, #progress-information-time, #progress-information-speed {
     color: #999999;
     font-size: 12px;
-    margin: 0px;
+    margin: 0;
     text-align: center;
 }
 
-
-.download-storage-location-text{
+.download-storage-location-text {
     color: #999999;
     font-size: 14px;
 }

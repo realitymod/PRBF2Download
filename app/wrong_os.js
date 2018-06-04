@@ -7,7 +7,7 @@ $(() => {
     $('#version-number').text('v' + app.getVersion());
 
     function onMinimizeButtonPress() {
-        var window = remote.getCurrentWindow();
+        const window = remote.getCurrentWindow();
         window.minimize();
     }
 
@@ -16,7 +16,7 @@ $(() => {
     }
 
     function onCloseButtonPress() {
-        var window = remote.getCurrentWindow();
+        const window = remote.getCurrentWindow();
         app.quit();
         window.close();
 

@@ -16,7 +16,7 @@ $(() => {
     const torrentURL = 'http://files.realitymod.com/bt/gimp_test_iso.iso.torrent';
     let setupPath = 'none';
     const downloadsPath = getDownloadStoragePath();
-    const isoPath = path.join(downloadsPath,isoName);
+    const isoPath = path.join(downloadsPath, isoName);
 
     function findMountedDrive() {
         let found = false;
@@ -32,13 +32,13 @@ $(() => {
     }
 
     function getDownloadStoragePath() {
-        return JSON.parse(fs.readFileSync(path.join(app.getPath('userData'),'config.json'))).downloadStoragePath;
+        return JSON.parse(fs.readFileSync(path.join(app.getPath('userData'), 'config.json'))).downloadStoragePath;
     }
 
     function onInstallButtonPress() {
         if (getOsVersion()) {
             setupPath = findMountedDrive();
-            if (setupPath == 'none') {
+            if (setupPath === 'none') {
                 child = spawn("powershell.exe", ["-Command", "Mount-DiskImage -ImagePath \"" + isoPath + "\""]);
                 setTimeout(function () {
                     setupPath = findMountedDrive();
@@ -81,7 +81,7 @@ $(() => {
             $('#progress-bar').attr('aria-valuenow', torrent.progress * 100);
             $('#progress-bar').css('width', torrent.progress * 100 + '%');
             $('#progress-bar').text(Math.round(torrent.progress * 100) + '%');
-            if (Math.round(torrent.progress * 100) == 100) {
+            if (Math.round(torrent.progress * 100) === 100) {
                 $('#progress-information-size').text(' ');
                 $('#progress-information-time').text('Verifying Files...');
                 $('#progress-information-speed').text(' ');
@@ -98,12 +98,12 @@ $(() => {
 
         torrent.on('done', function () {
             app.setAppUserModelId("PRBF2-Download-Assistant");
-            var notification = {
+            let notification = {
                 title: "PR:BF2 Download Assistant",
                 body: "Download Complete",
                 icon: './assets/icons/png/256x256.png'
             };
-            var myNotification = new window.Notification(notification.title, notification);
+            let myNotification = new window.Notification(notification.title, notification);
 
             myNotification.onclick = () => {
                 win.show();
