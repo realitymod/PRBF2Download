@@ -4,7 +4,6 @@ $(() => {
     const fs = require('fs');
     const path = require('path');
     const shell = require('electron').shell;
-    let spawn = require("child_process").spawn, child;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
     let isoPath = 'none';
