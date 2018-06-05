@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "electron .",
-    "dist": "build"
+    "dist": "build",
+    "distsigned": "set CSC_LINK=file://C:/Users/Wouter Jansen/Dropbox/comodocodesigningcertificate2017.p12 && set CSC_KEY_PASSWORD=wBAnThEPOrEdIc && build"
   },
   "author": "Wouter Jansen",
   "build": {
