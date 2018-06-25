@@ -116,3 +116,7 @@ h5 {
     color: #0c99ff;
     cursor: pointer;
 }
+
+#torrent-pause, #torrent-start, #minimize-button, #close-button{
+    cursor: pointer;
+}

@@ -17,7 +17,10 @@
     "appId": "PRBF2-Download-Assistant",
     "win": {
       "target": [
-        "portable"
+        {
+          "target": "portable",
+          "arch":["ia32"]
+        }
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
     }

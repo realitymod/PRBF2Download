@@ -113,8 +113,9 @@ $(() => {
     }
 
     function onCloseButtonPress() {
-        app.quit();
-        win.close();
+        win.setProgressBar(0, {mode: "normal"});
+        if(!paused){client.remove(client.torrents[0]);}
+        win.loadFile('./app/cancel.html')
     }
 
     function onTorrentContinueButtonPress() {
