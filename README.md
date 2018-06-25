@@ -4,10 +4,10 @@ A simple webapplication build on Electron to help facilitate the download and in
 Uses BitTorrent as download protocol using WebTorrent library.
 
 ## Functionality
-* Allow user to select download folder and save this configuration information.
+* Allow user to select download folder and save this configuration when program is later restarted.
 * Retrieve PR:BF2 version and torrent information from online source.
-* Download of the installer torrent.
-* If operating system allows it automatically mounts the installer to virtual drive and starts setup executable. Otherwise opens download folder. 
+* Download of the installer torrent. 
+* If operating system allows this(Win8 and above), it automatically mounts the installer to a virtual drive and starts the installer setup executable. Otherwise simply opens the download folder. 
 
 
 ## Start
