@@ -7,7 +7,9 @@ $(() => {
     const shell = require('electron').shell;
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
+    const versionInformationURL = 'https://www.realitymod.com/version/versiontest.json';
 
+    document.getElementById('download-storage-location-text').style.borderColor = 'black';
     $('#download-storage-location-text').attr('value', downloadsPath);
     getVersionBig(function(version){
         $('#prbf2-version').text(version);
@@ -19,14 +21,32 @@ $(() => {
             properties: ['openDirectory', 'createDirectory']
         });
         if (downloadsPathTemp !== undefined) {
-            downloadsPath = downloadsPathTemp[0]
+            try {
+                fs.writeFileSync(downloadsPathTemp[0] + '\\test_write_access.pr', 'PR:BF2 Download Assistant - Write access test file. You can remove this file!', 'utf-8');
+                fs.unlinkSync(downloadsPathTemp[0] + '\\test_write_access.pr');
+                downloadsPath = downloadsPathTemp[0];
+                $('#download-storage-location-text').attr('value', downloadsPath);
+                $('#errorText').text('');
+                document.getElementById('download-storage-location-text').style.backgroundColor = '#e9ecef';
+                document.getElementById('download-storage-location-text').style.color = '#495057';
+                document.getElementById('download-storage-location-text').style.borderColor = 'black';
+                document.getElementById('continue-button').disabled = false;
+            }
+            catch(e) {
+                document.getElementById('continue-button').disabled = true;
+                downloadsPath = undefined;
+                document.getElementById('download-storage-location-text').style.backgroundColor = 'rgb(255,179,184)';
+                document.getElementById('download-storage-location-text').style.color = 'rgb(107,29,37)';
+                document.getElementById('download-storage-location-text').style.borderColor = 'red';
+                $('#download-storage-location-text').attr('value', downloadsPathTemp[0]);
+                $('#errorText').text('Please choose a different download folder. No write privileges to this folder.');
+            }
         }
-        $('#download-storage-location-text').attr('value', downloadsPath);
     }
 
     function getVersionBig(handleData) {
         $.ajax({
-            url: "https://www.realitymod.com/version/version.json",
+            url: versionInformationURL,
             success:function(data) {
                 handleData(data.version_big);
             }
@@ -56,7 +76,6 @@ $(() => {
         win.loadFile('./app/download.html')
 
     }
-
     document.querySelector('#continue-button').addEventListener('click', onContinueButtonPress);
     document.querySelector('#browse-button').addEventListener('click', onBrowseButtonPress);
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);

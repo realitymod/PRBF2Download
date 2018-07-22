@@ -41,6 +41,13 @@ h5 {
     cursor: default;
 }
 
+.btn-primary:disabled {
+    background: linear-gradient(to bottom, #3298cb, #03699c);
+    color: black;
+    border: none;
+    font-weight: 500;
+}
+
 #titlebar-container {
     background-color: black;
     position: relative;
@@ -119,4 +126,9 @@ h5 {
 
 #torrent-pause, #torrent-start, #minimize-button, #close-button{
     cursor: pointer;
+}
+
+#errorText{
+    color: #ff4f5c;
+    padding-left:14px;
 }
