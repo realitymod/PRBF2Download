@@ -105,7 +105,7 @@ $(() => {
     }
 
     function onPRManualLinkPress() {
-        shell.openExternal('http://realitymod.com/manual')
+        shell.openExternal('https://www.realitymod.com/manual')
     }
 
     function onGithubLinkPress() {
