@@ -40,17 +40,11 @@ $(() => {
         });
     }
 
-    function onContinueButtonPress() {
+    function onCancelButtonPress() {
         win.loadFile('./app/download.html')
     }
 
-    function onCancelButtonPress() {
-        app.quit();
-        win.close();
-
-    }
-
-    function onCancelAndRemoveButtonPress() {
+    function onRemoveButtonPress() {
         try{
             rimraf.sync(installerPath);
         }catch(err){
@@ -66,8 +60,7 @@ $(() => {
     });
 
     document.querySelector('#cancel-button').addEventListener('click', onCancelButtonPress);
-    document.querySelector('#cancel-remove-button').addEventListener('click', onCancelAndRemoveButtonPress);
-    document.querySelector('#continue-button').addEventListener('click', onContinueButtonPress);
+    document.querySelector('#remove-button').addEventListener('click', onRemoveButtonPress);
     document.querySelector('#close-button').addEventListener('click', onCloseButtonPress);
     document.querySelector('#minimize-button').addEventListener('click', onMinimizeButtonPress);
     document.querySelector('#website-link').addEventListener('click', onWebsiteLinkPress);
