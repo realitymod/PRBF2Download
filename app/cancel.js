@@ -7,7 +7,7 @@ $(() => {
     const win = remote.getCurrentWindow();
     const configPath = path.join(app.getPath('userData'), 'config.json');
     let isoPath = 'none';
-    const versionInformationURL = 'https://www.realitymod.com/version/versiontest.json';
+    const versionInformationURL = 'https://d76a05d74f889aafd38d-39162a6e09ffdab7394e3243fa2342c1.ssl.cf2.rackcdn.com/version.json';
 
     function getDownloadStoragePath() {
         return JSON.parse(fs.readFileSync(configPath)).downloadStoragePath;
