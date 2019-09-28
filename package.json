@@ -6,7 +6,7 @@
   "dependencies": {
     "humanize-duration": "latest",
     "pretty-bytes": "latest",
-    "webtorrent": "^0.101.0"
+    "webtorrent": "^0.107.16"
   },
   "scripts": {
     "start": "electron .",
