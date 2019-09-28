@@ -64,6 +64,7 @@ $(() => {
         if(!paused && client.torrents[0]){client.remove(client.torrents[0]);}
         win.loadFile('./app/cancel.html')
     }
+
     function onInstallButtonPress() {
         shell.showItemInFolder(path.join(getDownloadStoragePath(), installerFolder));
         child = spawn(path.join(getDownloadStoragePath(), installerFolder, installerName));
