@@ -65,3 +65,6 @@ dist
 .idea
 package-lock.json
 build/
+
+#vscode configs
+.vscode/
