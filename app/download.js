@@ -99,7 +99,7 @@ $(() => {
         $('#torrent-pause').css('color', 'white');
         $('#torrent-start').css('color', '#5a5757');
         getTorrentURL(function(torrent_url){
-            client.add(torrent_url, {path: getDownloadStoragePath()}, onTorrent);
+            client.add(torrent_url, {path: getDownloadStoragePath(), maxWebConns: 200});
         });
         paused = false;
         $('#progress-information-time').text('Verifying Files...');
@@ -139,7 +139,7 @@ $(() => {
                         round: true,
                         largest: 2
                     }) + ' remaining');
-                    $('#progress-information-speed').text(prettyBytes(client.downloadSpeed) + '/s');
+                    $('#progress-information-speed').text(prettyBytes(client.downloadSpeed) + '/s from ' + torrent.numPeers + ' peers');
                 }
             }else{
                 clearInterval(interval);

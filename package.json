@@ -1,25 +1,27 @@
 {
   "name": "PRBF2-Download-Assistant",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Download tool for PR:BF2",
   "main": "./app/main.js",
   "dependencies": {
     "humanize-duration": "latest",
     "pretty-bytes": "latest",
-    "webtorrent": "^0.101.0"
+    "webtorrent": "^0.108.1"
   },
   "scripts": {
     "start": "electron .",
     "dist": "build"
   },
-  "author": "Wouter Jansen",
+  "author": "Project Reality",
   "build": {
     "appId": "PRBF2-Download-Assistant",
     "win": {
       "target": [
         {
           "target": "portable",
-          "arch":["ia32"]
+          "arch": [
+            "ia32"
+          ]
         }
       ],
       "icon": "/app/assets/icons/ico/icon.ico"
