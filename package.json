@@ -29,7 +29,7 @@
     }
   },
   "devDependencies": {
-    "electron": "4.2.12",
+    "electron": "39.8.4",
     "electron-builder": "latest"
   }
 }
